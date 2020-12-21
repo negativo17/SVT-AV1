@@ -2,7 +2,7 @@
 %global real_name SVT-AV1
 
 Name:           svt-av1
-Version:        0.8.5
+Version:        0.8.6
 Release:        1%{?dist}
 Summary:        Scalable Video Technology for AV1 Encoder / Decoder
 License:        Alliance for Open Media Patent License 1.0
@@ -93,5 +93,8 @@ popd
 %{_libdir}/gstreamer-1.0/libgstsvtav1enc.so
 
 %changelog
+* Mon Dec 21 2020 Simone Caronni <negativo17@gmail.com> - 0.8.6-1
+- Update to 0.8.6.
+
 * Thu Nov 26 2020 Simone Caronni <negativo17@gmail.com> - 0.8.5-1
 - First build, make it build also on CentOS/RHEL 7 with rebased GStreamer.
