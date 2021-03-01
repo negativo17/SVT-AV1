@@ -3,7 +3,7 @@
 
 Name:           svt-av1
 Version:        0.8.6
-Release:        1%{?dist}
+Release:        5%{?dist}
 Summary:        Scalable Video Technology for AV1 Encoder / Decoder
 License:        Alliance for Open Media Patent License 1.0
 URL:            https://github.com/AOMediaCodec/%{real_name}
@@ -11,6 +11,7 @@ URL:            https://github.com/AOMediaCodec/%{real_name}
 Source0:        %{url}/archive/v%{version}/%{real_name}-%{version}.tar.gz
 # Build GStreamer plugin from tree directly
 Patch0:         %{name}-gst.patch
+Patch1:         https://gitlab.com/1480c1/SVT-AV1/-/commit/8f9acb7a6215c49297f9cb6c574150e48d8f5b76.patch
 
 BuildRequires:  cmake3
 BuildRequires:  gcc-c++
@@ -54,6 +55,8 @@ This package provides an %{real_name} based GStreamer plug-in.
 %autosetup -p1 -n %{real_name}-%{version}
 
 %build
+export LDFLAGS="%build_ldflags -Wl,-znoexecstack"
+
 # Do not use 'Release' build or it hardcodes compiler settings:
 %cmake3 -G Ninja -DCMAKE_BUILD_TYPE='Fedora'
 %ninja_build
@@ -77,9 +80,9 @@ popd
 %files libs
 %license LICENSE.md
 %doc README.md Docs
-%{_libdir}/libSvtAv1Dec.so.0.8.5
+%{_libdir}/libSvtAv1Dec.so.%{version}
 %{_libdir}/libSvtAv1Dec.so.0
-%{_libdir}/libSvtAv1Enc.so.0.8.5
+%{_libdir}/libSvtAv1Enc.so.%{version}
 %{_libdir}/libSvtAv1Enc.so.0
 
 %files devel
@@ -93,6 +96,10 @@ popd
 %{_libdir}/gstreamer-1.0/libgstsvtav1enc.so
 
 %changelog
+* Mon Mar 01 2021 Simone Caronni <negativo17@gmail.com> - 0.8.6-5
+- Backport fixes from Fedora.
+- Bump release to be newer than the official Fedora packages.
+
 * Mon Dec 21 2020 Simone Caronni <negativo17@gmail.com> - 0.8.6-1
 - Update to 0.8.6.
 
