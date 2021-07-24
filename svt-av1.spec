@@ -2,8 +2,8 @@
 %global real_name SVT-AV1
 
 Name:           svt-av1
-Version:        0.8.6
-Release:        6%{?dist}
+Version:        0.8.7
+Release:        1%{?dist}
 Summary:        Scalable Video Technology for AV1 Encoder / Decoder
 License:        Alliance for Open Media Patent License 1.0
 URL:            https://gitlab.com/AOMediaCodec/%{real_name}
@@ -11,7 +11,6 @@ URL:            https://gitlab.com/AOMediaCodec/%{real_name}
 Source0:        %{url}/-/archive/v%{version}/%{real_name}-v%{version}.tar.bz2
 # Build GStreamer plugin from tree directly
 Patch0:         %{name}-gst.patch
-Patch1:         https://gitlab.com/1480c1/SVT-AV1/-/commit/8f9acb7a6215c49297f9cb6c574150e48d8f5b76.patch
 
 BuildRequires:  cmake3
 BuildRequires:  gcc-c++
@@ -96,6 +95,9 @@ popd
 %{_libdir}/gstreamer-1.0/libgstsvtav1enc.so
 
 %changelog
+* Sat Jul 24 2021 Simone Caronni <negativo17@gmail.com> - 0.8.7-1
+- Update to 0.8.7.
+
 * Fri Apr 30 2021 Simone Caronni <negativo17@gmail.com> - 0.8.6-6
 - Switch sources to Gitlab.
 
