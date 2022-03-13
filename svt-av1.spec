@@ -2,8 +2,8 @@
 %global real_name SVT-AV1
 
 Name:           svt-av1
-Version:        0.9.0
-Release:        2%{?dist}
+Version:        0.9.1
+Release:        1%{?dist}
 Summary:        Scalable Video Technology for AV1 Encoder / Decoder
 License:        Alliance for Open Media Patent License 1.0
 URL:            https://gitlab.com/AOMediaCodec/%{real_name}
@@ -95,6 +95,9 @@ popd
 %{_libdir}/gstreamer-1.0/libgstsvtav1enc.so
 
 %changelog
+* Sun Mar 13 2022 Simone Caronni <negativo17@gmail.com> - 0.9.1-1
+- Update to 0.9.1.
+
 * Wed Jan 26 2022 Simone Caronni <negativo17@gmail.com> - 0.9.0-2
 - Move docs to devel subpackage.
 
