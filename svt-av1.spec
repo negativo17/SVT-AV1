@@ -5,7 +5,7 @@ Name:           svt-av1
 Version:        0.9.1
 Release:        1%{?dist}
 Summary:        Scalable Video Technology for AV1 Encoder / Decoder
-License:        Alliance for Open Media Patent License 1.0
+License:        BSD-3-Clause
 URL:            https://gitlab.com/AOMediaCodec/%{real_name}
 
 Source0:        %{url}/-/archive/v%{version}/%{real_name}-v%{version}.tar.bz2
