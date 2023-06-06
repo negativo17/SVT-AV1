@@ -55,8 +55,8 @@ This package provides an %{real_name} based GStreamer plug-in.
 export LDFLAGS="%build_ldflags -Wl,-znoexecstack"
 
 # Do not use 'Release' build or it hardcodes compiler settings:
-%cmake3 -G Ninja -DCMAKE_BUILD_TYPE='Fedora'
-%ninja_build
+%cmake3 -DCMAKE_BUILD_TYPE='Fedora'
+%cmake3_build
 
 pushd gstreamer-plugin
 export LIBRARY_PATH="$PWD/../Bin/Fedora:$LIBRARY_PATH"
@@ -65,7 +65,7 @@ export LIBRARY_PATH="$PWD/../Bin/Fedora:$LIBRARY_PATH"
 popd
 
 %install
-%ninja_install
+%cmake3_install
 pushd gstreamer-plugin
 %meson_install
 popd
