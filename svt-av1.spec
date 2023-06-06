@@ -3,7 +3,7 @@
 
 Name:           svt-av1
 Version:        1.1.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Scalable Video Technology for AV1 Encoder / Decoder
 License:        BSD-3-Clause
 URL:            https://gitlab.com/AOMediaCodec/%{real_name}
@@ -19,8 +19,6 @@ BuildRequires:  pkgconfig(gstreamer-1.0) >= 1.13.1
 BuildRequires:  pkgconfig(gstreamer-base-1.0) >= 1.13.1
 BuildRequires:  pkgconfig(gstreamer-video-1.0) >= 1.13.1
 BuildRequires:  yasm
-
-ExclusiveArch:  x86_64
 
 %description
 The Scalable Video Technology for AV1 (SVT-AV1 Encoder and Decoder) is an AV1
@@ -95,6 +93,9 @@ popd
 %{_libdir}/gstreamer-1.0/libgstsvtav1enc.so
 
 %changelog
+* Tue Jun 06 2023 Simone Caronni <negativo17@gmail.com> - 1.1.0-2
+- Remove x86_64 exclusive.
+
 * Tue May 31 2022 Simone Caronni <negativo17@gmail.com> - 1.1.0-1
 - Update to 1.1.0.
 
