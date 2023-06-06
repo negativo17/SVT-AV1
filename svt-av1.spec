@@ -12,7 +12,7 @@ Source0:        %{url}/-/archive/v%{version}/%{real_name}-v%{version}.tar.bz2
 # Build GStreamer plugin from tree directly
 Patch0:         %{name}-gst.patch
 
-BuildRequires:  cmake3
+BuildRequires:  cmake
 BuildRequires:  gcc-c++
 BuildRequires:  meson
 BuildRequires:  pkgconfig(gstreamer-1.0) >= 1.13.1
@@ -55,8 +55,8 @@ This package provides an %{real_name} based GStreamer plug-in.
 export LDFLAGS="%build_ldflags -Wl,-znoexecstack"
 
 # Do not use 'Release' build or it hardcodes compiler settings:
-%cmake3 -G Ninja -DCMAKE_BUILD_TYPE='Fedora'
-%ninja_build
+%cmake -DCMAKE_BUILD_TYPE='Fedora'
+%cmake_build
 
 pushd gstreamer-plugin
 export LIBRARY_PATH="$PWD/../Bin/Fedora:$LIBRARY_PATH"
@@ -65,7 +65,7 @@ export LIBRARY_PATH="$PWD/../Bin/Fedora:$LIBRARY_PATH"
 popd
 
 %install
-%ninja_install
+%cmake_install
 pushd gstreamer-plugin
 %meson_install
 popd
