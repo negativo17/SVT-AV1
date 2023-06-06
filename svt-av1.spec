@@ -20,8 +20,6 @@ BuildRequires:  pkgconfig(gstreamer-base-1.0) >= 1.13.1
 BuildRequires:  pkgconfig(gstreamer-video-1.0) >= 1.13.1
 BuildRequires:  yasm
 
-ExclusiveArch:  x86_64
-
 %description
 The Scalable Video Technology for AV1 (SVT-AV1 Encoder and Decoder) is an AV1
 compliant encoder/decoder library core. The SVT-AV1 encoder development is a
@@ -95,6 +93,9 @@ popd
 %{_libdir}/gstreamer-1.0/libgstsvtav1enc.so
 
 %changelog
+* Tue Jun 06 2023 Simone Caronni <negativo17@gmail.com> - 0.9.1-2
+- Remove x86_64 exclusive.
+
 * Sun Mar 13 2022 Simone Caronni <negativo17@gmail.com> - 0.9.1-1
 - Update to 0.9.1.
 
